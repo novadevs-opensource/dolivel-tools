@@ -3,9 +3,10 @@ Dolivel package scaffold
 
 ## How to
 1. Create a new laravel project with composer.
-2. Inside the root of your project, create the following path ```/packages/novadevs```
+2. Inside the root of your project, create the following path ```/packages/novadevs/dolivel/<module-name>```
 3. Go inside and run the ```composer init``` command.
-3. Add to this path (/packages/novadevs) the following scaffold (you can clone this project)
+    1. Follow the composer init assistant.
+4. Add to this path (/packages/novadevs/dolivel/<module-name>) the following scaffold (you can clone this project)
 
 #### Package structure
     <module-name>
@@ -32,11 +33,11 @@ Dolivel package scaffold
     │   └── routes
     │       └── web.php
     └── webpack.mix.js
-4. Customize your package composer.josn file, it should looks as follows (keep in mind that you'll need to replace some <....> stuff):
+5. Customize your package composer.josn file, it should looks as follows (keep in mind that you'll need to replace some <....> stuff):
  
 
 #### Sample of package's composer.json
-```/packages/novadevs/<package-name>/composer.json```
+```/packages/novadevs/dolivel/<package-name>/composer.json```
 ```
 {
     "name": "dolivel/<module-name>",
@@ -85,7 +86,7 @@ Dolivel package scaffold
 }
 ```
        
-5. Update your Laravel project's main composer.json file, and add a custom repository wich points to your previously created path (/packages/novadevs).
-6. Finally, rom you Laravel's project root, run
-    ```composer require novadevs/nombre_paquete @dev```
+6. Update your Laravel project's main composer.json file, and add a custom repository wich points to your previously created path (/packages/novadevs/dolivel/<package-name>).
+7. Finally, rom you Laravel's project root, run
+    ```composer require dolivel/<package-name> @dev```
     This will 'install' your packagem, I mean, it will register your custom service provider by the autodiscover feature.
