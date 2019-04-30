@@ -5,34 +5,38 @@ Dolivel package scaffold
 1. Create a new laravel project with composer.
 2. Inside the root of your project, create the following path ```/packages/novadevs```
 3. Go inside and run the ```composer init``` command.
-3. Add to this path (/packages/novadevs) the following structure (you can clone this project)
+3. Add to this path (/packages/novadevs) the following scaffold (you can clone this project)
 
 #### Package structure
-	<module-name>
-	├── README.md
-	├── src
-	│   ├── Commands
-	│   │   └── InstallModule.php
-	│   ├── Database
-	│   │   └── migrations
-	│   ├── Models
-	│   ├── Controllers
-	│   ├── YourModuleNameServiceProvider.php
-	│   ├── config
-	│   │   └── mod-conf.php
-	│   ├── public
-	│   │   ├── css
-	│   │   └── js
-	│   ├── resources
-	│   │   ├── assets
-	│   │   ├── lang
-	│   │   │   ├── en.json
-	│   │   │   └── es.json
-	│   │   └── views
-	│   └── routes
-	│       └── web.php
-	└── webpack.mix.js
+    <module-name>
+    ├── README.md
+    ├── src
+    │   ├── Commands
+    │   │   └── InstallModule.php
+    │   ├── Database
+    │   │   └── migrations
+    │   ├── Models
+    │   ├── Controllers
+    │   ├── YourModuleNameServiceProvider.php
+    │   ├── config
+    │   │   └── mod-conf.php
+    │   ├── public
+    │   │   ├── css
+    │   │   └── js
+    │   ├── resources
+    │   │   ├── assets
+    │   │   ├── lang
+    │   │   │   ├── en.json
+    │   │   │   └── es.json
+    │   │   └── views
+    │   └── routes
+    │       └── web.php
+    └── webpack.mix.js
 4. Customize your package composer.josn file, it should looks as follows (keep in mind that you'll need to replace some <....> stuff):
+ 
+
+#### Sample of package's composer.json
+```/packages/novadevs/<package-name>/composer.json```
 ```
 {
     "name": "dolivel/<module-name>",
