@@ -5,7 +5,7 @@
  */
 
  return [
-     'id'         => 1,
+     'id'         => <module-id>,
      'name'       => '<module-name>',
      'depends_of' => <sepparated-comma-string>,
      'status'     => 0,

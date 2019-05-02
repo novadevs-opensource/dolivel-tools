@@ -86,7 +86,10 @@ Dolivel package scaffold
 }
 ```
        
-6. Update your Laravel project's main composer.json file, and add a custom repository wich points to your previously created path (/packages/novadevs/dolivel/<package-name>).
-7. Finally, rom you Laravel's project root, run
-    ```composer require dolivel/<package-name> @dev```
-    This will 'install' your packagem, I mean, it will register your custom service provider by the autodiscover feature.
+6. Update your Laravel project's main composer.json file, adding a custom repository wich points to your previously created path (/packages/novadevs/dolivel/<package-name>).
+7. Finally, from your Laravel's project root, run
+	``` 
+	composer update
+	composer require dolivel/<package-name> @dev
+	```
+    This will 'install' your packagem, I mean, it will register your custom service provider by the autodiscover feature. Keep in mid that if you want to use your new package, you'll need to use the "standard" Laravel steps as publishing vendors, run migrations...

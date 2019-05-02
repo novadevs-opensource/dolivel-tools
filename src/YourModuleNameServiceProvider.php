@@ -7,19 +7,10 @@ use Novadevs\Dolivel\Base\Models\Module;
 use Novadevs\Dolivel\Base\Repositories\ModuleInterface;
 use Novadevs\Dolivel\Base\Repositories\ModuleRepository;
 
-use Illuminate\Http\Request;
-
 use \stdClass;
 
 class <module-name>ServiceProvider extends ServiceProvider
 {
-    /**
-     * Custom binded data
-     *
-     * @var Request $request
-     */
-    protected $request;
-
     /**
      * Register services.
      *
@@ -32,7 +23,7 @@ class <module-name>ServiceProvider extends ServiceProvider
         );
 
         $this->app->bind('ModuleInterface', function($app) {
-            return new ModuleRepository( new Module(), $this->request );
+            return new ModuleRepository( new Module() );
         });
 
     }
@@ -43,12 +34,8 @@ class <module-name>ServiceProvider extends ServiceProvider
      * @param Request $request
      * @return void
      */
-    public function boot(Request $request)
+    public function boot()
     {
-        // FIXME: Do we need to change the Request $request object type?
-        $this->request = $request;
-        $this->request->conf = $this->getConfigObject();
-
         // Loading route files.
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
 
@@ -102,17 +89,5 @@ class <module-name>ServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/resources/lang' => resource_path('lang'),
         ]);
-    }
-
-    /**
-     * Get the module config from conf file.
-     *
-     * @return object \stdClass $obj
-     */
-    public function getConfigObject()
-    {
-        $obj = new stdClass();
-        $obj->val = config('novadevs.Dolivel.<module-name>.mod-conf');
-        return $obj;
     }
 }

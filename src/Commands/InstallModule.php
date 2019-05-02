@@ -47,15 +47,12 @@ class InstallModule extends Command
      */
     public function handle(ModuleRepository $module)
     {
-   
-        // Your code
+         // Your additional code here
 
-        if ( $module->install() ) { 
+        if ( $module->install('novadevs.Dolivel.<module-name>.mod-conf') == 1 ) { 
             $this->info('Installation completed successfully.');
         } else {
-            $this->error('An error happened');
+            $this->error($module->install('novadevs.Dolivel.base.mod-conf'));
         }
     }
-
-    // Your additional code
 }
